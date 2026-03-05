@@ -118,7 +118,7 @@ kitti/
 Example: **train with CAS-Net** at 1024 points (D=8):
 
 ```bash
-python train.py --data_root /path/to/kitti --ds_mode cn --ds_num 1024
+python train.py --data_root /path/to/kitti --ds_num 1024
 ```
 
 <details>
@@ -134,7 +134,6 @@ python train.py --data_root /path/to/kitti --ds_mode cn --ds_num 1024
 * `--log_freq` (`int`, default: `8`) — logging frequency (steps).
 * `--ckpt_freq_epoch` (`int`, default: `20`) — checkpoint frequency (epochs).
 * `--resume_epoch` (`int`, default: `0`) — resume from epoch.
-* `--ds_mode` (`str`, default: `none`) — subsampling mode: `none`, `rs`, `fps`, `cn`, `sgwrs`.
 * `--ds_num` (`int`, default: `1024`) — number of points retained after sampling.
 * `--no_cuda` (flag) — disable CUDA.
 
@@ -159,14 +158,14 @@ python evaluate.py --data_root /path/to/kitti --ckpt /path/to/checkpoint.pth --d
 * `--batch_size` (`int`, default: `8`) — batch size.
 * `--num_workers` (`int`, default: `4`) — DataLoader workers.
 * `--nclasses` (`int`, default: `3`) — number of classes.
-* `--ds_mode` (`str`, default: `none`) — subsampling mode: `none`, `rs`, `fps`, `cn`, `sgwrs`.
+* `--ds_mode` (`str`, default: `none`) — subsampling mode: `none`, `rs`, `fps`, `cn`.
 * `--ds_num` (`int`, default: `1024`) — number of retained points.
 * `--no_cuda` (flag) — disable CUDA.
 * `--save_ds_pcd` (flag) — save downsampled point clouds + calibration for visualization.
 
 </details>
 
-The trained model checkpoints are available here: [Models](https://drive.google.com/drive/folders/1upACqyq26IpGa_9ccBzdfruqI7USgyml)
+The trained model checkpoints are available here: [Models](https://drive.google.com/drive/folders/1rhEO7Gw_4f3XaOhS9uhgdojCz6v49mFV)
 > Download the desired `.pth` file and pass its path to the `--ckpt` argument.
 
 <br>
@@ -176,7 +175,7 @@ The trained model checkpoints are available here: [Models](https://drive.google.
 
 The PointPillars model was evaluated using three different sampling methods — **Random Sampling (RS)**, **Farthest Point Sampling (FPS)**, and **CAS-Net** — across four sampling ratios: **1, 2, 4, and 8**.  Here, **1** represents the baseline with all **8192 points** preserved. 
 
-The complete prediction outputs — including all generated 3D bounding boxes — can be accessed at the following link: [Predictions](https://drive.google.com/drive/folders/10oz6Zbbh9h8zRno7hZrJhYzMDDTE7LCd). This contains the raw detection results for every evaluated frame, which may be useful for further analysis, visualization, or comparison with alternative methods.
+The complete prediction outputs — including all generated 3D bounding boxes — can be accessed at the following link: [Predictions](https://drive.google.com/drive/folders/1nYSGinl3_bLLn7WvBZROdOXsl49F14vy). This contains the raw detection results for every evaluated frame, which may be useful for further analysis, visualization, or comparison with alternative methods.
 
 ### Detection accuracy (bbox_3d, moderate mAP %)
 
@@ -193,7 +192,7 @@ The complete prediction outputs — including all generated 3D bounding boxes �
 
 </details>
 
-> **Note:** The tables present only the **overall bbox_3d moderate** scores. The full evaluation results — including all difficulty levels and metrics — are available via the following link: [Full Results](https://drive.google.com/drive/folders/18QJxFkWjThhkmTmVRdKut0XfzHoB5z4R)
+> **Note:** The tables present only the **overall bbox_3d moderate** scores. The full evaluation results — including all difficulty levels and metrics — are available via the following link: [Full Results](https://drive.google.com/drive/folders/1a-CsqkytRUDGh-Vg3P5ZKgiMLMmz1Nf4)
 
 ### Subsampling overhead (seconds per frame)
 
