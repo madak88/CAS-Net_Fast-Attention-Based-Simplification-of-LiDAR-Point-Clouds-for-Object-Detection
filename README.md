@@ -1,0 +1,1 @@
+# CAS-Net_Fast-Attention-Based-Simplification-of-LiDAR-Point-Clouds-for-Object-Detection
