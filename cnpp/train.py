@@ -36,9 +36,9 @@ def main(args):
                                     shuffle=False)
 
     if not args.no_cuda:
-        pointpillars = PointPillars(nclasses=args.nclasses, ds_mode=args.ds_mode, ds_num=args.ds_num).cuda()
+        pointpillars = PointPillars(nclasses=args.nclasses, ds_mode="cn", ds_num=args.ds_num).cuda()
     else:
-        pointpillars = PointPillars(nclasses=args.nclasses, ds_mode=args.ds_mode, ds_num=args.ds_num)
+        pointpillars = PointPillars(nclasses=args.nclasses, ds_mode="cn", ds_num=args.ds_num)
     loss_func = Loss()
 
     max_iters = len(train_dataloader) * args.max_epoch
@@ -230,12 +230,6 @@ if __name__ == '__main__':
     parser.add_argument('--ckpt_freq_epoch', type=int, default=20)
     parser.add_argument('--no_cuda', action='store_true', help='whether to use cuda')
     parser.add_argument('--resume_epoch', type=int, default=0)
-    parser.add_argument("--ds_mode", default="none", choices=["cn", "rs", "fps"], help=( 
-        "Dataset sampling mode:\n"
-        "  cn    : CAS-Net\n"
-        "  rs    : Random Sampling\n"
-        "  fps   : Farthest Point Sampling"
-    ))
     parser.add_argument('--ds_num', type=int, default=1024)
     args = parser.parse_args()
     main(args)
