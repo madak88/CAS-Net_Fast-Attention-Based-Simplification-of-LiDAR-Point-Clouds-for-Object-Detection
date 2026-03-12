@@ -34,7 +34,7 @@ else
         --env NVIDIA_VISIBLE_DEVICES=all \
         --env NVIDIA_DRIVER_CAPABILITIES=all \
         --volume $src_folder:/home/appuser/cnpp \
-        --volume /home/madak32/Desktop/CAS-Net_Fast-Attention-Based-Simplification-of-LiDAR-Point-Clouds-for-Object-Detection/cnpp_ds/kitti_data:/home/appuser/cnpp/kitti_data \
+        --volume /path/to/kitti_data:/home/appuser/cnpp/kitti_data \
         --interactive \
         --tty \
         --detach \
